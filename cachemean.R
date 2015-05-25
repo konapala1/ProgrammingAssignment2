@@ -7,7 +7,7 @@
 cachemean <- function(x, ...) {
   mv <- x$getmean()
   if(!is.null(mv)) {
-    message("getting cached data")
+##    message("Obtaining cached data")
     return(mv)
   }
   data <- x$get()

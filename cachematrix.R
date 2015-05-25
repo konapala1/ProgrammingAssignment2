@@ -7,12 +7,12 @@
 ## calculates the inverse once.
 ##
 ## Usage:
-##  M <- matrix(c(1, 2, 3, 4), nrow=2, ncol=2)
+##  Mat <- matrix(c(1, 2, 3, 4), nrow=2, ncol=2)
 ##  cacheMatrix <- makeCacheMatrix(M)
 ##  cacheSolve(cacheMatrix)
 ##
 ##  cacheMatrix$set(M)      # Change the matrix being cached.
-##  M <- cacheMatrix$get()  # Returns the matrix being cached.
+##  Mat <- cacheMatrix$get()  # Returns the matrix being cached.
 ##
 ##  cacheMatrix$setInverse(solve(data, ...)) # Private function containing cached inverse of x
 ##  cacheMatrix$getInverse()                 # Private function used to get the cached inverse of x
@@ -29,7 +29,7 @@ makeCacheMatrix <- function(x = matrix()) {
   setInverse <- function(inverse) cachedInverse <<- inverse
   getInverse <- function() cachedInverse
   list(set = set, get = get,
-       setInverse = setInverse,
+##       setInverse = setInverse,
        getInverse = getInverse)
 }
 
@@ -45,6 +45,6 @@ cacheSolve <- function(x, ...) {
   }
   data <- x$get()
   invFunc <- solve(data, ...)
-  x$setInverse(invFunc)
+##  x$setInverse(invFunc)
   invFunc
 }
